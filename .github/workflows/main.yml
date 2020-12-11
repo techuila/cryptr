@@ -2,18 +2,18 @@ name: CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      PORT_PROD: 8082
+      PORT_PROD: 8909
     steps:
       - uses: actions/checkout@v2
-     
+
       - name: Install npm packages
         run: |
           cd client
