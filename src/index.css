@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-field {
+  @apply bg-gray-700 focus:bg-gray-600 text-white focus:outline-none w-full text-xs text-black placeholder-gray-300 rounded-md py-2 pl-4 mb-5 mt-2 h-10 text-sm;
+}
+
+.text-area {
+  @apply bg-gray-700 focus:bg-gray-600 text-white focus:outline-none w-full text-sm placeholder-gray-300 rounded-md py-2 pl-4 mt-2 font-mono cursor-text;
+}
+
+.pre {
+  @apply bg-gray-700 focus:bg-gray-600 text-white focus:outline-none w-full text-sm placeholder-gray-300 rounded-md py-2 px-4 mt-2 max-h-64 whitespace-pre-wrap break-all;
+}
+
+.active-tab {
+  @apply bg-blue-500 shadow-lg;
+}
