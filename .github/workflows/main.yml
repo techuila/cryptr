@@ -1,0 +1,37 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    env:
+      PORT_PROD: 8082
+    steps:
+      - uses: actions/checkout@v2
+     
+      - name: Install npm packages
+        run: |
+          cd client
+          npm install
+
+      - name: Build web app
+        run: |
+          cd client
+          npm run build
+
+  deploy:
+    runs-on: self-hosted
+    needs: [build]
+    env:
+      PROJECT_DIR: /var/www/cryptr
+    steps:
+      - name: Copy files to /var/www/cryptr
+        run: |
+          rm -rf $PROJECT_DIR/client/build
+          rm -rf client/node_modules
+          cp -r ./ $PROJECT_DIR
