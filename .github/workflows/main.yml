@@ -16,12 +16,10 @@ jobs:
 
       - name: Install npm packages
         run: |
-          cd client
           npm install
 
       - name: Build web app
         run: |
-          cd client
           npm run build
 
   deploy:
